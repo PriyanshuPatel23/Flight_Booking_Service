@@ -12,6 +12,10 @@ const setupAndStartServer = () => {
 
   app.use("/api", apiRoutes);
 
+  app.get("/", (req, res) => {
+    res.send("Welcome, your app is working well");
+  });
+
   app.listen(PORT, () => {
     console.log(`Server is Listening on ${PORT}`);
     if (DB_SYNC) {
