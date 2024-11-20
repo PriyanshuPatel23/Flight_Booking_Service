@@ -16,10 +16,12 @@ const setupAndStartServer = () => {
     res.send("Welcome, your app is working well");
   });
 
+  app.use("/api", apiRoutes);
+
   app.listen(PORT, () => {
     console.log(`Server is Listening on ${PORT}`);
     if (DB_SYNC) {
-      db.sequelize.sync({ alter: true });
+      db.sequelize.sync({ alter: false });
     }
   });
 };
